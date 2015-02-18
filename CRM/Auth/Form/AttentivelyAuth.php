@@ -31,11 +31,8 @@ class CRM_Auth_Form_AttentivelyAuth extends CRM_Core_Form {
   function postProcess() {
     $values = $this->exportValues();
     CRM_Attentively_BAO_Attentively::updateAttentivelyAuth($values);
-    $redirectUri = 'http://localhost/attentive.ly.jmaconsulting.biz/civicrm/attentively/request'; // Redirect to JMA instance
     $config = CRM_Core_Config::singleton();
-    CRM_Core_Error::debug( '$config', $config );
-    exit;
+    $redirectUri = "http://attentive.ly.jmaconsulting.biz/civicrm/attentively/request?redirect={$config->userFrameworkBaseURL}/civicrm/attentively/authcallback"; // Redirect to JMA instance
     CRM_Utils_System::redirect($redirectUri);
-    parent::postProcess();
   }
 }

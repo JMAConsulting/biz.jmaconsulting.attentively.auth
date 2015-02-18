@@ -7,9 +7,9 @@
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
-    <path>civicrm/attentively/request</path>
-    <page_callback>CRM_Auth_Page_AttentivelyRequest</page_callback>
-    <title>AttentivelyRequest</title>
+    <path>civicrm/attentively/authcallback</path>
+    <page_callback>CRM_Auth_Page_AttentivelyAuthCallback</page_callback>
+    <title>Attentively Access Token</title>
     <access_callback>1</access_callback>
     <is_public>true</is_public>
   </item>
