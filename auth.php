@@ -1,5 +1,7 @@
 <?php
 
+define('ENV', 0); // Set ENV to 1 for production API (https://api.attentive.ly) or 0 for test API (http://apidev.attentive.ly)
+
 require_once 'auth.civix.php';
 
 /**
