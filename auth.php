@@ -29,6 +29,7 @@ function auth_civicrm_xmlMenu(&$files) {
  */
 function auth_civicrm_install() {
   _auth_civix_civicrm_install();
+  CRM_Core_Session::singleton()->set('authEnabled', TRUE);
 }
 
 /**
@@ -47,6 +48,7 @@ function auth_civicrm_uninstall() {
  */
 function auth_civicrm_enable() {
   _auth_civix_civicrm_enable();
+  CRM_Core_Session::singleton()->set('authEnabled', TRUE);
 }
 
 /**
@@ -105,4 +107,16 @@ function auth_civicrm_caseTypes(&$caseTypes) {
  */
 function auth_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
   _auth_civix_civicrm_alterSettingsFolders($metaDataFolders);
+}
+
+/**
+ * Implementation of hook_civicrm_pageRun
+ *
+ * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_pageRun
+ */
+function auth_civicrm_pageRun(&$page) {
+  if (get_class($page) == 'CRM_Admin_Page_Extensions' && CRM_Core_Session::singleton()->get('authEnabled')) {
+    CRM_Core_Session::singleton()->set('authEnabled', FALSE);
+    CRM_Utils_System::redirect(CRM_Utils_System::url('civicrm/auth', "reset=1"));
+  }
 }
