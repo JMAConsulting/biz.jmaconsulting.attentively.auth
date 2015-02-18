@@ -83,6 +83,7 @@ function auth_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
  */
 function auth_civicrm_managed(&$entities) {
   _auth_civix_civicrm_managed($entities);
+  CRM_Utils_System::redirect('civicrm/auth', 'reset=1'); // Does not work
 }
 
 /**
