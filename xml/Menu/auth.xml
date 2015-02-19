@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <menu>
   <item>
-    <path>civicrm/auth</path>
-    <page_callback>CRM_Auth_Form_AttentivelyAuth</page_callback>
-    <title>Attentively Terms and Conditions</title>
-    <access_arguments>access CiviCRM</access_arguments>
+    <path>civicrm/attentively/request</path>
+    <page_callback>CRM_Attentively_Page_AttentivelyAuth</page_callback>
+    <title>Attentively Request Token</title>
+    <access_callback>1</access_callback>
+    <is_public>true</is_public>
   </item>
   <item>
     <path>civicrm/attentively/authcallback</path>
