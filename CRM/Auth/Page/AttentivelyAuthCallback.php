@@ -29,7 +29,6 @@ class CRM_Auth_Page_AttentivelyAuthCallback extends CRM_Core_Page {
       curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
       $response = curl_exec( $ch );
     }
-    setcookie('accessToken', $values['access_token']);
     CRM_Utils_System::redirect($redirectDomain);
   }
 }
