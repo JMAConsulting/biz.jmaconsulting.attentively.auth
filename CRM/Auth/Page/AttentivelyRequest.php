@@ -2,7 +2,7 @@
 
 require_once 'CRM/Core/Page.php';
 
-class CRM_Attentively_Page_AttentivelyRequest extends CRM_Core_Page {
+class CRM_Auth_Page_AttentivelyRequest extends CRM_Core_Page {
   function run() {
     $redirect = CRM_Utils_Array::value('redirect', $_GET);
     $redirectUri = 'http://attentive.ly.jmaconsulting.biz/civicrm/attentively/callback';
