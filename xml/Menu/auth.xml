@@ -2,7 +2,7 @@
 <menu>
   <item>
     <path>civicrm/attentively/request</path>
-    <page_callback>CRM_Attentively_Page_AttentivelyAuth</page_callback>
+    <page_callback>CRM_Auth_Page_AttentivelyRequest</page_callback>
     <title>Attentively Request Token</title>
     <access_callback>1</access_callback>
     <is_public>true</is_public>
