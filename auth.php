@@ -2,6 +2,15 @@
 
 define('ENV', 1); // Set ENV to 1 for production API (https://api.attentive.ly) or 0 for test API (http://apidev.attentive.ly)
 
+if (ENV) {
+  define('CLIENT_ID', '8472694e89dd1bb0b36141a8e253c70e');
+  define('CLIENT_SECRET', '1ebe6e760323b09b1697f38342a56d6e');
+}
+else {
+  define('CLIENT_ID', '11ae3571ce8e128ca0ce789c74f7276c');
+  define('CLIENT_SECRET', '1f566ca01cf741c693d783e0d0ac03ef');
+}
+
 require_once 'auth.civix.php';
 
 /**
