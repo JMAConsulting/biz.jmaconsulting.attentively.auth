@@ -9,6 +9,7 @@ class CRM_Auth_Page_AttentivelyRequest extends CRM_Core_Page {
     $url = CRM_Auth_BAO_AttentivelyAuth::checkEnvironment();
     $url = $url . 'connect?client_id='.CLIENT_ID.'&redirect_uri='.$redirectUri;
     CRM_Core_Session::singleton()->set('redirectDomain', $redirect);
+    civicrm_api3('setting', 'create', array('redirectDomain' => $redirect));
     CRM_Utils_System::redirect($url);
     parent::run();
   }

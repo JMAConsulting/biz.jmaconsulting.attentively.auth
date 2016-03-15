@@ -16,7 +16,9 @@ class CRM_Auth_Page_AttentivelyAuthCallback extends CRM_Core_Page {
     curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt( $ch, CURLOPT_HEADER, 0);
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-    
+    $result = civicrm_api3('setting', 'get', array('return' => array('redirectDomain')));
+    $redirectDomain = $result['values'][1]['redirectDomain'];    
+
     $response = curl_exec( $ch );
     $values = get_object_vars(json_decode($response));
     if ($values['success']) {
