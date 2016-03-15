@@ -6,7 +6,6 @@ class CRM_Auth_Page_AttentivelyAuthCallback extends CRM_Core_Page {
   function run() {
     $code = CRM_Utils_Array::value('code', $_GET);
     $redirectUri = CRM_Utils_System::url('civicrm/attentively/authcallback', NULL, TRUE);
-    $redirectDomain = CRM_Core_Session::singleton()->get('redirectDomain');
     $url = CRM_Auth_BAO_AttentivelyAuth::checkEnvironment();
     $url = $url . 'authorization';
     $post = 'code=' . $code . '&client_id=' . CLIENT_ID . '&client_secret=' . CLIENT_SECRET . '&redirect_uri=' .$redirectUri. '&access_token=';
@@ -17,7 +16,8 @@ class CRM_Auth_Page_AttentivelyAuthCallback extends CRM_Core_Page {
     curl_setopt( $ch, CURLOPT_HEADER, 0);
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
     $result = civicrm_api3('setting', 'get', array('return' => array('redirectDomain')));
-    $redirectDomain = $result['values'][1]['redirectDomain'];    
+    $redirectDomain = $result['values'][1]['redirectDomain'];
+    civicrm_api3('setting', 'create', array('redirectDomain' => NULL);
 
     $response = curl_exec( $ch );
     $values = get_object_vars(json_decode($response));
